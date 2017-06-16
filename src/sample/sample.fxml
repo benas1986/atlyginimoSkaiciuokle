@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Pane prefHeight="448.0" prefWidth="271.0">
+         <children>
+            <Label layoutX="16.0" layoutY="14.0" prefHeight="25.0" prefWidth="120.0" text="Atlyginimas į rankas" />
+            <TextField fx:id="input" layoutX="139.0" layoutY="14.0" onAction="#reiksmesIvedimas" onInputMethodTextChanged="#reiksmesIvedimas" prefHeight="25.0" prefWidth="120.0" promptText="Atlyginimas į rankas" style="-fx-background-radius: 15;" />
+            <Label layoutX="15.0" layoutY="50.0" text="Ar turite vaikų:" />
+            <RadioButton fx:id="radioButtonTaip" layoutX="103.0" layoutY="50.0" mnemonicParsing="false" onAction="#radioAction" text="Taip">
+               <toggleGroup>
+                  <ToggleGroup fx:id="radioButtons" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="radioButtonNe" layoutX="158.0" layoutY="50.0" mnemonicParsing="false" onAction="#radioAction" selected="true" text="Ne" toggleGroup="$radioButtons" />
+            <Label fx:id="kiekAuginateVaikuLabel" layoutX="15.0" layoutY="71.0" text="Kiek vaikų auginate?" />
+            <ChoiceBox fx:id="kiekVaikuAuginateChoiceBox" cache="true" layoutX="174.0" layoutY="67.0" prefHeight="25.0" prefWidth="85.0" style="-fx-background-radius: 15;" />
+            <Label fx:id="arAuginuVienasLabel" layoutX="13.0" layoutY="99.0" prefHeight="25.0" prefWidth="160.0" text="Ar auginu vaiką(us) viena(as)?" />
+            <ChoiceBox fx:id="arAuginuVienasChoiceBox" layoutX="174.0" layoutY="99.0" prefHeight="25.0" prefWidth="85.0" style="-fx-background-radius: 15;" />
+            <Label layoutX="14.0" layoutY="409.0" text="Atlyginimas ant popieriaus" />
+            <Label layoutX="13.0" layoutY="136.0" text="Speciali darbingumo grupė" />
+            <ChoiceBox fx:id="socialineDraudimoGrupeChoiceBox" layoutX="175.0" layoutY="132.0" prefHeight="25.0" prefWidth="85.0" style="-fx-background-radius: 15;" />
+            <Label layoutX="15.0" layoutY="170.0" text="Ar kaupiu  papildomai pensijai(2%)?" />
+            <ChoiceBox fx:id="pensijosKaupimasChoiceBox" layoutX="205.0" layoutY="166.0" prefHeight="25.0" prefWidth="55.0" style="-fx-background-radius: 15;" />
+            <Label layoutX="16.0" layoutY="198.0" text="Pagrindinis NPD" />
+            <Label fx:id="pagrindinioNPDReiksme" layoutX="207.0" layoutY="195.0" text="0" />
+            <Label layoutX="16.0" layoutY="215.0" text="Papildomas NPD" />
+            <Label fx:id="papildomoNPDReiksme" layoutX="207.0" layoutY="212.0" text="0" />
+            <Label layoutX="16.0" layoutY="232.0" text="Visas NPD" />
+            <Label fx:id="visoNPDReiksme" layoutX="207.0" layoutY="229.0" text="0" />
+            <Label fx:id="atlyginimoAntPopieriausReiksme" layoutX="207.0" layoutY="409.0" text="0" />
+            <Label layoutX="16.0" layoutY="266.0" text="Pajamų mokestis(GPM-15%)" />
+            <Label fx:id="pajamuMokestisReiksme" layoutX="207.0" layoutY="263.0" text="0" />
+            <Label layoutX="16.0" layoutY="283.0" text="Sveikatos draudimas(PSD-6%) " />
+            <Label fx:id="sveikatosDraudimasReiksme" layoutX="207.0" layoutY="280.0" text="0" />
+            <Label layoutX="16.0" layoutY="300.0" text="Pensijų ir soc. draudimas(3%)" />
+            <Label fx:id="pIrSocDraudimasReiksme" layoutX="207.0" layoutY="297.0" text="0" />
+            <Label layoutX="16.0" layoutY="317.0" text="Pensijos kaupimas(2%)" />
+            <Label fx:id="pensijosKaupimasReiksme" layoutX="207.0" layoutY="317.0" text="0" />
+            <Label layoutX="15.0" layoutY="354.0" text="Sodros įmoka(VSD-30,98%)" />
+            <Label fx:id="sodrosImokaReiksme" layoutX="207.0" layoutY="354.0" text="0" />
+            <Label layoutX="15.0" layoutY="371.0" text="Įmokos į garantinį fondą(0,2%)" />
+            <Label fx:id="imokosIGarantiniFondaReiksme" layoutX="207.0" layoutY="371.0" text="0" />
+            <Label layoutX="14.0" layoutY="388.0" text="Darbo vietos kaina" />
+            <Label fx:id="darboVietosKainaReiksme" layoutX="207.0" layoutY="388.0" text="0" />
+         </children>
+      </Pane>
+   </children>
+</GridPane>
