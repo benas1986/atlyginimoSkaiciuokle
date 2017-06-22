@@ -6,6 +6,8 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
@@ -19,10 +21,10 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <Pane prefHeight="448.0" prefWidth="271.0">
+      <Pane pickOnBounds="false" prefHeight="448.0" prefWidth="275.0">
          <children>
             <Label layoutX="14.0" layoutY="15.0" prefHeight="25.0" prefWidth="150.0" text="Atlyginimas ant popieriaus" />
-            <TextField fx:id="input" focusTraversable="false" layoutX="160.0" layoutY="15.0" onAction="#skaiciuoti" prefHeight="25.0" prefWidth="98.0" promptText="Įveskite skaičių" style="-fx-background-radius: 15;" />
+            <TextField fx:id="input" focusTraversable="false" layoutX="160.0" layoutY="15.0" onAction="#skaiciuoti" prefHeight="25.0" prefWidth="105.0" promptText="Įveskite skaičių" style="-fx-background-radius: 15;" />
             <Label layoutX="13.0" layoutY="44.0" text="Ar turite vaikų:" />
             <RadioButton fx:id="radioButtonTaip" layoutX="102.0" layoutY="44.0" mnemonicParsing="false" onAction="#radioAction" text="Taip">
                <toggleGroup>
@@ -30,14 +32,14 @@
                </toggleGroup></RadioButton>
             <RadioButton fx:id="radioButtonNe" layoutX="157.0" layoutY="44.0" mnemonicParsing="false" onAction="#radioAction" selected="true" text="Ne" toggleGroup="$radioButtons" />
             <Label fx:id="kiekAuginateVaikuLabel" layoutX="16.0" layoutY="71.0" text="Kiek vaikų auginate?" />
-            <ChoiceBox fx:id="kiekVaikuAuginateChoiceBox" cache="true" layoutX="174.0" layoutY="67.0" prefHeight="25.0" prefWidth="85.0" style="-fx-background-radius: 15;" />
-            <Label fx:id="arAuginuVienasLabel" layoutX="14.0" layoutY="99.0" prefHeight="25.0" prefWidth="160.0" text="Auginate viena(s)?" />
-            <ChoiceBox fx:id="arAuginuVienasChoiceBox" cache="true" layoutX="174.0" layoutY="99.0" prefHeight="25.0" prefWidth="85.0" style="-fx-background-radius: 15;" />
+            <ChoiceBox fx:id="kiekVaikuAuginateChoiceBox" cache="true" layoutX="178.0" layoutY="67.0" prefHeight="25.0" prefWidth="85.0" style="-fx-background-radius: 15;" />
+            <Label fx:id="arAuginuVienasLabel" layoutX="16.0" layoutY="99.0" prefHeight="25.0" prefWidth="160.0" text="Auginate viena(s)?" />
+            <ChoiceBox fx:id="arAuginuVienasChoiceBox" cache="true" layoutX="178.0" layoutY="99.0" prefHeight="25.0" prefWidth="85.0" style="-fx-background-radius: 15;" />
             <Label layoutX="16.0" layoutY="390.0" text="Atlyginimas i rankas" />
-            <Label layoutX="18.0" layoutY="136.0" text="Speciali darbingumo grupė" />
-            <ChoiceBox fx:id="socialineDraudimoGrupeChoiceBox" layoutX="174.0" layoutY="132.0" prefHeight="25.0" prefWidth="85.0" style="-fx-background-radius: 15;" />
-            <Label layoutX="14.0" layoutY="170.0" text="Ar kaupiu pensijai papildomai? 2%" />
-            <ChoiceBox fx:id="pensijosKaupimasChoiceBox" layoutX="209.0" layoutY="166.0" prefHeight="25.0" prefWidth="55.0" style="-fx-background-radius: 15;" />
+            <Label layoutX="16.0" layoutY="136.0" text="Speciali darbingumo grupė" />
+            <ChoiceBox fx:id="socialineDraudimoGrupeChoiceBox" layoutX="178.0" layoutY="132.0" prefHeight="25.0" prefWidth="85.0" style="-fx-background-radius: 15;" />
+            <Label layoutX="16.0" layoutY="170.0" text="Ar kaupiu pensijai papildomai? 2%" />
+            <ChoiceBox fx:id="pensijosKaupimasChoiceBox" layoutX="206.0" layoutY="166.0" prefHeight="25.0" prefWidth="55.0" style="-fx-background-radius: 15;" />
             <Label layoutX="16.0" layoutY="198.0" text="Pagrindinis NPD" />
             <Label fx:id="pagrindinioNPDReiksme" layoutX="214.0" layoutY="197.0" text="0" />
             <Label layoutX="16.0" layoutY="215.0" text="Papildomas NPD" />
@@ -45,21 +47,30 @@
             <Label layoutX="16.0" layoutY="232.0" text="Visas NPD" />
             <Label fx:id="visoNPDReiksme" layoutX="214.0" layoutY="231.0" text="0" />
             <Label fx:id="atlyginimoAntPopieriausReiksme" layoutX="213.0" layoutY="392.0" text="0" />
-            <Label layoutX="15.0" layoutY="252.0" text="Pajamų mokestis(GPM) -  15%" />
+            <Label layoutX="16.0" layoutY="252.0" text="Pajamų mokestis(GPM) -  15%" />
             <Label fx:id="pajamuMokescioReiksme" layoutX="213.0" layoutY="251.0" text="0" />
-            <Label layoutX="15.0" layoutY="269.0" text="Sveikatos draudimas(PSD)  - 6% " />
+            <Label layoutX="16.0" layoutY="269.0" text="Sveikatos draudimas(PSD)  - 6% " />
             <Label fx:id="sveikatosDraudimoReiksme" layoutX="213.0" layoutY="268.0" text="0" />
-            <Label layoutX="15.0" layoutY="286.0" text="Pensijų ir soc. draudimas - 3%" />
+            <Label layoutX="16.0" layoutY="286.0" text="Pensijų ir soc. draudimas - 3%" />
             <Label fx:id="socialinioDraudimoReiksme" layoutX="213.0" layoutY="285.0" text="0" />
-            <Label layoutX="15.0" layoutY="303.0" text="Pensijos kaupimas - 2%" />
+            <Label layoutX="16.0" layoutY="303.0" text="Pensijos kaupimas - 2%" />
             <Label fx:id="pensijosKaupimoReiksme" layoutX="213.0" layoutY="305.0" text="0" />
-            <Label layoutX="12.0" layoutY="323.0" text="Valst. soc. draudimas(VSD) - 30,98%" />
+            <Label layoutX="16.0" layoutY="323.0" text="Valst. soc. draudimas(VSD) - 30,98%" />
             <Label fx:id="sodrosImokosDarbdaviuiReiksme" layoutX="213.0" layoutY="323.0" text="0" />
-            <Label layoutX="12.0" layoutY="346.0" text="Įmokos į garantinį fondą - 0,2%" />
+            <Label layoutX="19.0" layoutY="346.0" text="Įmokos į garantinį fondą - 0,2%" />
             <Label fx:id="imokosIGarantiniFondaDarbdaviuiReiksme" layoutX="213.0" layoutY="346.0" text="0" />
-            <Label layoutX="15.0" layoutY="372.0" text="Darbo vietos kaina" />
+            <Label layoutX="16.0" layoutY="372.0" text="Darbo vietos kaina darbdaviui" />
             <Label fx:id="darboVietosKainosReiksme" layoutX="213.0" layoutY="374.0" text="0" />
-            <Button fx:id="button" layoutX="15.0" layoutY="415.0" mnemonicParsing="false" onAction="#skaiciuoti" prefHeight="25.0" prefWidth="244.0" style="-fx-background-radius: 15;" text="Skaičiuoti" />
+            <Button fx:id="button" layoutX="16.0" layoutY="415.0" mnemonicParsing="false" onAction="#skaiciuoti" prefHeight="25.0" prefWidth="244.0" style="-fx-background-radius: 15;" text="Skaičiuoti" />
+            <TreeTableView fx:id="treeTableView" layoutX="3.0" layoutY="199.0" prefHeight="213.0" prefWidth="265.0">
+               <placeholder>
+                  <Label text="" />
+               </placeholder>
+               <columns>
+                <TreeTableColumn fx:id="firstColName" editable="false" minWidth="0.0" prefWidth="198.0" style="-fx-font-size: 10px; -fx-background-radius: 15;" text="Parametrai" />
+                <TreeTableColumn fx:id="lastColName" editable="false" prefWidth="63.0" resizable="false" style="-fx-font-size: 10px; -fx-background-radius: 15;" text="Rezultatas" />
+              </columns>
+            </TreeTableView>
          </children>
       </Pane>
    </children>
